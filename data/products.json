@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "name_es": "Squishy / Mini Push Bubble Pops",
+    "name_en": "Squishy / Mini Push Bubble Pops",
+    "description_es": "Juguete sensorial que ayuda a liberar tensión física y mental, mejora la concentración y reduce la ansiedad mediante estimulación táctil. Portátil y fácil de usar en cualquier momento.",
+    "description_en": "Sensory toy that helps release physical and mental tension, improves focus and reduces anxiety through tactile stimulation. Portable and easy to use anytime.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Ayudan a liberar tensión física y mental.",
+        "Mejoran la concentración y reducen la ansiedad mediante la estimulación táctil.",
+        "Portátiles y fáciles de usar en cualquier momento."
+      ],
+      "en": [
+        "Release physical and mental tension.",
+        "Improve focus and reduce anxiety through tactile stimulation.",
+        "Portable and easy to use anytime."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "id": 2,
+    "name_es": "Piedras sensoriales",
+    "name_en": "Sensory Stones",
+    "description_es": "Piedras diseñadas para generar una experiencia táctil relajante, favoreciendo la conexión con el presente (mindfulness) y reduciendo el estrés mediante la estimulación de los sentidos.",
+    "description_en": "Stones designed to provide a calming tactile experience, encouraging mindfulness and present-moment awareness, reducing stress by engaging the senses.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Generan una experiencia táctil relajante.",
+        "Favorecen la conexión con el presente (mindfulness).",
+        "Reducen el estrés al estimular sentidos y promover calma."
+      ],
+      "en": [
+        "Provide a calming tactile experience.",
+        "Encourage mindfulness and present-moment awareness.",
+        "Reduce stress by engaging the senses."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "id": 3,
+    "name_es": "Regla mágica versátil",
+    "name_en": "Versatile Magic Ruler",
+    "description_es": "Objeto lúdico y distractor que estimula la creatividad y la motricidad fina, permitiendo pausas activas en entornos académicos o laborales.",
+    "description_en": "A playful and distracting tool that stimulates creativity and fine motor skills, supporting active breaks in academic or work settings.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Funciona como objeto lúdico y distractor.",
+        "Estimula la creatividad y la motricidad fina.",
+        "Permite pausas activas en entornos académicos o laborales."
+      ],
+      "en": [
+        "Serves as a playful and distracting tool.",
+        "Stimulates creativity and fine motor skills.",
+        "Supports active breaks in academic or work settings."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "id": 4,
+    "name_es": "Mascarillas comprimidas",
+    "name_en": "Compressed Face Masks",
+    "description_es": "Mascarillas faciales comprimidas que proporcionan cuidado facial rápido y práctico, refrescan y revitalizan la piel generando sensación de bienestar, reforzando la idea de autocuidado.",
+    "description_en": "Compressed face masks that offer quick and practical facial care, refresh and revitalize the skin enhancing well-being, reinforcing the self-care aspect.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Proporcionan cuidado facial rápido y práctico.",
+        "Refrescan y revitalizan la piel, generando sensación de bienestar.",
+        "Refuerzan la idea de autocuidado dentro del kit."
+      ],
+      "en": [
+        "Offer quick and practical facial care.",
+        "Refresh and revitalize the skin, enhancing well-being.",
+        "Reinforce the self-care aspect of the kit."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "id": 5,
+    "name_es": "Frases de motivación",
+    "name_en": "Motivational Phrases",
+    "description_es": "Tarjetas o impresos con mensajes positivos que refuerzan el bienestar emocional, ayudan a mantener una actitud optimista frente al estrés y generan conexión emocional con la marca.",
+    "description_en": "Cards or prints with positive messages that strengthen emotional well-being, help maintain an optimistic attitude under stress, and build emotional connection with the brand.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Refuerzan el bienestar emocional con mensajes positivos.",
+        "Ayudan a mantener una actitud optimista frente al estrés.",
+        "Generan conexión emocional con la marca."
+      ],
+      "en": [
+        "Strengthen emotional well-being with positive messages.",
+        "Help maintain an optimistic attitude under stress.",
+        "Build emotional connection with the brand."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "id": 6,
+    "name_es": "Moldeado de arcilla",
+    "name_en": "Modeling Clay",
+    "description_es": "Arcilla moldeable que estimula la creatividad y la relajación mediante la manipulación manual, favorece la concentración y reduce pensamientos negativos, actuando como terapia ocupacional ligera.",
+    "description_en": "Moldable clay that stimulates creativity and relaxation through manual activity, improves concentration and reduces negative thoughts, acting as a light occupational therapy tool.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Estimula la creatividad y la relajación mediante la manipulación manual.",
+        "Favorece la concentración y reduce pensamientos negativos.",
+        "Actúa como terapia ocupacional ligera."
+      ],
+      "en": [
+        "Stimulates creativity and relaxation through manual activity.",
+        "Improves concentration and reduces negative thoughts.",
+        "Acts as a light occupational therapy tool."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 6,
+    "is_active": true
+  },
+  {
+    "id": 7,
+    "name_es": "Estuche portátil / cartera",
+    "name_en": "Portable Case / Pouch",
+    "description_es": "Estuche que facilita el transporte y organización de los productos, reforzando la practicidad y el valor estético del kit, permitiendo usarlo en cualquier lugar: universidad, trabajo o casa.",
+    "description_en": "Case that keeps products organized and easy to carry, enhancing practicality and aesthetic value, allowing use anywhere: university, workplace, or home.",
+    "image_url": null,
+    "benefits": {
+      "es": [
+        "Facilita el transporte y organización de los productos.",
+        "Refuerza la practicidad y el valor estético del kit.",
+        "Permite usarlo en cualquier lugar: universidad, trabajo o casa."
+      ],
+      "en": [
+        "Keeps products organized and easy to carry.",
+        "Enhances practicality and aesthetic value.",
+        "Allows use anywhere: university, workplace, or home."
+      ]
+    },
+    "category": "kit",
+    "sort_order": 7,
+    "is_active": true
+  }
+]

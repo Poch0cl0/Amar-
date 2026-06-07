@@ -1,0 +1,116 @@
+{
+  "phrases": [
+    {
+      "text": "La calma no llega cuando el mundo se detiene, llega cuando aprendes a respirar dentro de el.",
+      "author": "Amara"
+    },
+    {
+      "text": "Un pequeno ritual puede cambiar por completo el tono de tu dia.",
+      "author": "Amara"
+    },
+    {
+      "text": "Cuidarte tambien es una forma de volver a ti.",
+      "author": "Amara"
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Rituales de pausa",
+      "slug": "rituales-pausa",
+      "icon": "Nube",
+      "description": "Kits suaves para bajar revoluciones, respirar profundo y regalarte un momento de descanso."
+    },
+    {
+      "name": "Calma creativa",
+      "slug": "calma-creativa",
+      "icon": "Flor",
+      "description": "Objetos tactiles y detalles pensados para enfocar la mente y canalizar energia nerviosa."
+    },
+    {
+      "name": "Noche serena",
+      "slug": "noche-serena",
+      "icon": "Luna",
+      "description": "Productos reconfortantes para cerrar el dia con una sensacion de abrigo y tranquilidad."
+    }
+  ],
+  "melodies": [
+    {
+      "title": "Lluvia suave",
+      "description": "Una melodia ambiente para acompanar respiraciones lentas y noches tranquilas.",
+      "category": "Descanso",
+      "duration": "06:24",
+      "accent": "bg-sage-100 text-sage-800"
+    },
+    {
+      "title": "Bosque al amanecer",
+      "description": "Aves, brisa ligera y una atmosfera limpia para comenzar el dia con suavidad.",
+      "category": "Inicio",
+      "duration": "08:10",
+      "accent": "bg-earth-100 text-earth-800"
+    },
+    {
+      "title": "Cuencos tibetanos",
+      "description": "Texturas sonoras lentas para meditar, leer o recuperar enfoque sin ruido.",
+      "category": "Meditacion",
+      "duration": "10:45",
+      "accent": "bg-clay-100 text-clay-800"
+    },
+    {
+      "title": "Cafe y respiracion",
+      "description": "Una pista serena para pausas breves durante la jornada.",
+      "category": "Pausa",
+      "duration": "04:36",
+      "accent": "bg-sand-200 text-earth-800"
+    }
+  ],
+  "products": [
+    {
+      "name": "Kit Ritual Nocturno",
+      "subtitle": "Infusion suave, antifaz relajante y tarjeta de respiracion para cerrar el dia en calma.",
+      "line": "Noche serena",
+      "price": "$89.900",
+      "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80",
+      "benefits": [
+        "Reduce la sobreestimulacion nocturna",
+        "Invita a una rutina breve y consistente",
+        "Se siente delicado y regalable"
+      ]
+    },
+    {
+      "name": "Kit Pausa de Oficina",
+      "subtitle": "Elementos tactiles, aroma sutil y mini guia para bajar tension durante el trabajo.",
+      "line": "Rituales de pausa",
+      "price": "$64.900",
+      "image": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=900&q=80",
+      "benefits": [
+        "Ideal para pausas de 5 minutos",
+        "Ayuda a recuperar foco",
+        "Formato sencillo para escritorio"
+      ]
+    },
+    {
+      "name": "Caja Calma Creativa",
+      "subtitle": "Texturas, tarjetas de afirmacion y una experiencia pensada para manos inquietas.",
+      "line": "Calma creativa",
+      "price": "$72.900",
+      "image": "https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80",
+      "benefits": [
+        "Canaliza energia nerviosa",
+        "Aporta anclajes sensoriales",
+        "Perfecta para regalo"
+      ]
+    },
+    {
+      "name": "Tarjetas de Respiracion",
+      "subtitle": "Pequena coleccion de pausas guiadas para tener a mano en cualquier momento.",
+      "line": "Rituales de pausa",
+      "price": "$29.900",
+      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+      "benefits": [
+        "Faciles de usar",
+        "Muy visuales",
+        "Se integran bien con las melodias"
+      ]
+    }
+  ]
+}

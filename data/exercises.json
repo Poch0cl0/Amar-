@@ -1,0 +1,342 @@
+[
+  {
+    "id": 1,
+    "title_es": "Respiración 4-7-8",
+    "title_en": "4-7-8 Breathing",
+    "description_es": "Técnica de respiración profunda para calmar el sistema nervioso y reducir la ansiedad en minutos.",
+    "description_en": "A deep breathing technique to calm the nervous system and reduce anxiety within minutes.",
+    "icon": "wind",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 1,
+    "steps": [
+      { "instruction_es": "Siéntate con la espalda recta y los pies apoyados en el suelo.", "instruction_en": "Sit with your back straight and feet flat on the floor.", "icon": "chair" },
+      { "instruction_es": "Inhala por la nariz contando hasta 4.", "instruction_en": "Inhale through your nose for a count of 4.", "icon": "wind", "duration_sec": 4 },
+      { "instruction_es": "Mantén el aire contando hasta 7.", "instruction_en": "Hold your breath for a count of 7.", "icon": "pause", "duration_sec": 7 },
+      { "instruction_es": "Exhala lentamente por la boca contando hasta 8.", "instruction_en": "Exhale slowly through your mouth for a count of 8.", "icon": "wind", "duration_sec": 8 }
+    ]
+  },
+  {
+    "id": 2,
+    "title_es": "Escaneo corporal",
+    "title_en": "Body scan",
+    "description_es": "Recorre tu cuerpo con atención plena para liberar tensiones acumuladas y reconectar con el presente.",
+    "description_en": "Scan your body mindfully to release built-up tension and reconnect with the present.",
+    "icon": "scan",
+    "duration_min": 15,
+    "difficulty": "intermediate",
+    "sort_order": 2,
+    "steps": [
+      { "instruction_es": "Túmbate en una posición cómoda.", "instruction_en": "Lie down in a comfortable position.", "icon": "bed" },
+      { "instruction_es": "Cierra los ojos y enfócate en tus pies.", "instruction_en": "Close your eyes and focus on your feet.", "icon": "eye" },
+      { "instruction_es": "Sube gradualmente la atención hasta la cabeza.", "instruction_en": "Gradually move your attention up to your head.", "icon": "arrow-up" },
+      { "instruction_es": "Observa cada zona sin juzgar y suelta la tensión.", "instruction_en": "Notice each area without judgment and release tension.", "icon": "heart" }
+    ]
+  },
+  {
+    "id": 3,
+    "title_es": "Relajación muscular progresiva",
+    "title_en": "Progressive muscle relaxation",
+    "description_es": "Tensa y relaja grupos musculares de forma secuencial para disminuir el estrés físico y mental.",
+    "description_en": "Tense and relax muscle groups sequentially to reduce physical and mental stress.",
+    "icon": "flower",
+    "duration_min": 10,
+    "difficulty": "intermediate",
+    "sort_order": 3,
+    "steps": [
+      { "instruction_es": "Comienza con los músculos de los pies durante 5 segundos.", "instruction_en": "Start with your foot muscles for 5 seconds.", "icon": "foot", "duration_sec": 5 },
+      { "instruction_es": "Suelta la tensión y nota la diferencia.", "instruction_en": "Release the tension and notice the difference.", "icon": "sparkles" },
+      { "instruction_es": "Repite con piernas, abdomen, manos y rostro.", "instruction_en": "Repeat with legs, abdomen, hands and face.", "icon": "repeat" },
+      { "instruction_es": "Termina respirando profundo tres veces.", "instruction_en": "Finish with three deep breaths.", "icon": "wind" }
+    ]
+  },
+  {
+    "id": 4,
+    "title_es": "Visualización guiada",
+    "title_en": "Guided visualization",
+    "description_es": "Imagina un lugar seguro y sereno para cultivar calma interior y claridad emocional.",
+    "description_en": "Picture a safe, peaceful place to cultivate inner calm and emotional clarity.",
+    "icon": "brain",
+    "duration_min": 12,
+    "difficulty": "intermediate",
+    "sort_order": 4,
+    "steps": [
+      { "instruction_es": "Cierra los ojos y respira de forma natural.", "instruction_en": "Close your eyes and breathe naturally.", "icon": "eye" },
+      { "instruction_es": "Visualiza un entorno que te transmita paz.", "instruction_en": "Visualize an environment that brings you peace.", "icon": "sun" },
+      { "instruction_es": "Explora los detalles con todos tus sentidos.", "instruction_en": "Explore the details with all your senses.", "icon": "sparkles" },
+      { "instruction_es": "Permanece ahí unos minutos antes de regresar.", "instruction_en": "Stay there for a few minutes before returning.", "icon": "timer", "duration_sec": 120 }
+    ]
+  },
+  {
+    "id": 5,
+    "title_es": "Respiración diafragmática",
+    "title_en": "Diaphragmatic breathing",
+    "description_es": "Activa el diafragma para oxigenar el cuerpo y activar la respuesta de relajación.",
+    "description_en": "Engage your diaphragm to oxygenate the body and trigger the relaxation response.",
+    "icon": "wind",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 5,
+    "steps": [
+      { "instruction_es": "Coloca una mano en el pecho y otra en el abdomen.", "instruction_en": "Place one hand on your chest and one on your belly.", "icon": "hand" },
+      { "instruction_es": "Inhala haciendo que suba el abdomen, no el pecho.", "instruction_en": "Inhale so your belly rises, not your chest.", "icon": "wind" },
+      { "instruction_es": "Exhala lentamente por la boca.", "instruction_en": "Exhale slowly through your mouth.", "icon": "wind" },
+      { "instruction_es": "Repite durante 5 minutos.", "instruction_en": "Repeat for 5 minutes.", "icon": "timer", "duration_sec": 300 }
+    ]
+  },
+  {
+    "id": 6,
+    "title_es": "Meditación de gratitud",
+    "title_en": "Gratitude meditation",
+    "description_es": "Reconoce tres aspectos positivos de tu día para equilibrar la mente y el ánimo.",
+    "description_en": "Acknowledge three positive aspects of your day to balance mind and mood.",
+    "icon": "heart",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 6,
+    "steps": [
+      { "instruction_es": "Respira profundo y centra tu atención.", "instruction_en": "Breathe deeply and center your attention.", "icon": "wind" },
+      { "instruction_es": "Piensa en algo que agradezcas hoy.", "instruction_en": "Think of something you are grateful for today.", "icon": "heart" },
+      { "instruction_es": "Repite con dos elementos más.", "instruction_en": "Repeat with two more items.", "icon": "repeat" },
+      { "instruction_es": "Sonríe suavemente y abre los ojos.", "instruction_en": "Smile gently and open your eyes.", "icon": "sparkles" }
+    ]
+  },
+  {
+    "id": 7,
+    "title_es": "Liberación de cuello y hombros",
+    "title_en": "Neck and shoulder release",
+    "description_es": "Movimientos suaves para soltar rigidez en la zona superior del cuerpo tras largas jornadas.",
+    "description_en": "Gentle movements to release upper-body stiffness after long days.",
+    "icon": "shoulder",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 7,
+    "steps": [
+      { "instruction_es": "Inclina la cabeza hacia un lado sin forzar.", "instruction_en": "Tilt your head to one side without forcing.", "icon": "arrow-up", "duration_sec": 20 },
+      { "instruction_es": "Repite hacia el otro lado.", "instruction_en": "Repeat on the other side.", "icon": "repeat", "duration_sec": 20 },
+      { "instruction_es": "Eleva los hombros y suéltalos de golpe.", "instruction_en": "Raise your shoulders and drop them suddenly.", "icon": "shoulder" },
+      { "instruction_es": "Realiza círculos lentos con el cuello.", "instruction_en": "Make slow circles with your neck.", "icon": "circle" }
+    ]
+  },
+  {
+    "id": 8,
+    "title_es": "Respiración cuadrada",
+    "title_en": "Box breathing",
+    "description_es": "Ritmo equilibrado de inhalar, sostener, exhalar y pausar para recuperar el foco.",
+    "description_en": "A balanced rhythm of inhale, hold, exhale and pause to regain focus.",
+    "icon": "square",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 8,
+    "steps": [
+      { "instruction_es": "Inhala contando hasta 4.", "instruction_en": "Inhale for a count of 4.", "icon": "wind", "duration_sec": 4 },
+      { "instruction_es": "Mantén el aire 4 segundos.", "instruction_en": "Hold for 4 seconds.", "icon": "pause", "duration_sec": 4 },
+      { "instruction_es": "Exhala durante 4 segundos.", "instruction_en": "Exhale for 4 seconds.", "icon": "wind", "duration_sec": 4 },
+      { "instruction_es": "Pausa 4 segundos y repite el ciclo.", "instruction_en": "Pause 4 seconds and repeat the cycle.", "icon": "repeat", "duration_sec": 4 }
+    ]
+  },
+  {
+    "id": 9,
+    "title_es": "Visualización de playa",
+    "title_en": "Beach visualization",
+    "description_es": "Transporta tu mente a la orilla del mar para descansar y soltar preocupaciones.",
+    "description_en": "Transport your mind to the seashore to rest and let go of worries.",
+    "icon": "waves",
+    "duration_min": 10,
+    "difficulty": "beginner",
+    "sort_order": 9,
+    "steps": [
+      { "instruction_es": "Cierra los ojos e imagina el sonido de las olas.", "instruction_en": "Close your eyes and imagine the sound of waves.", "icon": "waves" },
+      { "instruction_es": "Siente la brisa suave en tu piel.", "instruction_en": "Feel the gentle breeze on your skin.", "icon": "wind" },
+      { "instruction_es": "Visualiza la arena cálida bajo tus pies.", "instruction_en": "Picture warm sand beneath your feet.", "icon": "sun" },
+      { "instruction_es": "Respira al ritmo del mar.", "instruction_en": "Breathe in rhythm with the sea.", "icon": "heart" }
+    ]
+  },
+  {
+    "id": 10,
+    "title_es": "Mindfulness de respiración",
+    "title_en": "Breath mindfulness",
+    "description_es": "Observa cada inhalación y exhalación como ancla al momento presente.",
+    "description_en": "Observe each inhale and exhale as an anchor to the present moment.",
+    "icon": "leaf",
+    "duration_min": 10,
+    "difficulty": "beginner",
+    "sort_order": 10,
+    "steps": [
+      { "instruction_es": "Siéntate en silencio con la espalda erguida.", "instruction_en": "Sit quietly with an upright back.", "icon": "chair" },
+      { "instruction_es": "Lleva la atención a la entrada y salida del aire.", "instruction_en": "Bring attention to the air flowing in and out.", "icon": "wind" },
+      { "instruction_es": "Si la mente divaga, vuelve suavemente a la respiración.", "instruction_en": "If your mind wanders, gently return to the breath.", "icon": "heart" },
+      { "instruction_es": "Continúa durante 10 minutos.", "instruction_en": "Continue for 10 minutes.", "icon": "timer", "duration_sec": 600 }
+    ]
+  },
+  {
+    "id": 11,
+    "title_es": "Liberación de mandíbula",
+    "title_en": "Jaw release",
+    "description_es": "Suelta la tensión mandibular frecuente en el estrés y el trabajo concentrado.",
+    "description_en": "Release jaw tension common with stress and focused work.",
+    "icon": "face",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 11,
+    "steps": [
+      { "instruction_es": "Separa ligeramente los dientes sin abrir la boca.", "instruction_en": "Part your teeth slightly without opening your mouth.", "icon": "face" },
+      { "instruction_es": "Masajea suavemente los músculos de la mandíbula.", "instruction_en": "Gently massage your jaw muscles.", "icon": "hand", "duration_sec": 60 },
+      { "instruction_es": "Realiza movimientos circulares con la lengua.", "instruction_en": "Make circular movements with your tongue.", "icon": "circle" },
+      { "instruction_es": "Respira profundo y relaja el rostro.", "instruction_en": "Breathe deeply and relax your face.", "icon": "wind" }
+    ]
+  },
+  {
+    "id": 12,
+    "title_es": "Estiramiento consciente",
+    "title_en": "Mindful stretching",
+    "description_es": "Combina movimiento lento y respiración para despertar el cuerpo con calma.",
+    "description_en": "Combine slow movement and breathing to awaken the body calmly.",
+    "icon": "stretch",
+    "duration_min": 10,
+    "difficulty": "beginner",
+    "sort_order": 12,
+    "steps": [
+      { "instruction_es": "Eleva los brazos al inhalar.", "instruction_en": "Raise your arms as you inhale.", "icon": "arrow-up" },
+      { "instruction_es": "Baja lentamente al exhalar.", "instruction_en": "Lower slowly as you exhale.", "icon": "wind" },
+      { "instruction_es": "Inclínate suavemente hacia los lados.", "instruction_en": "Gently lean to each side.", "icon": "stretch" },
+      { "instruction_es": "Termina en postura neutral y respira.", "instruction_en": "End in a neutral posture and breathe.", "icon": "heart" }
+    ]
+  },
+  {
+    "id": 13,
+    "title_es": "Respiración alterna nasal",
+    "title_en": "Alternate nostril breathing",
+    "description_es": "Equilibra el sistema nervioso alternando la respiración por cada fosa nasal.",
+    "description_en": "Balance the nervous system by alternating breath through each nostril.",
+    "icon": "wind",
+    "duration_min": 8,
+    "difficulty": "intermediate",
+    "sort_order": 13,
+    "steps": [
+      { "instruction_es": "Cierra la fosa nasal derecha con el pulgar.", "instruction_en": "Close your right nostril with your thumb.", "icon": "hand" },
+      { "instruction_es": "Inhala por la fosa izquierda.", "instruction_en": "Inhale through the left nostril.", "icon": "wind" },
+      { "instruction_es": "Cierra la izquierda e inhala por la derecha.", "instruction_en": "Close the left and inhale through the right.", "icon": "repeat" },
+      { "instruction_es": "Continúa alternando durante varios ciclos.", "instruction_en": "Keep alternating for several cycles.", "icon": "timer", "duration_sec": 480 }
+    ]
+  },
+  {
+    "id": 14,
+    "title_es": "Anclaje al presente",
+    "title_en": "Present-moment anchoring",
+    "description_es": "Usa tus sentidos para salir del piloto automático y volver al aquí y ahora.",
+    "description_en": "Use your senses to step out of autopilot and return to the here and now.",
+    "icon": "anchor",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 14,
+    "steps": [
+      { "instruction_es": "Nombra 5 cosas que puedes ver.", "instruction_en": "Name 5 things you can see.", "icon": "eye" },
+      { "instruction_es": "Nombra 4 cosas que puedes tocar.", "instruction_en": "Name 4 things you can touch.", "icon": "hand" },
+      { "instruction_es": "Nombra 3 sonidos que escuchas.", "instruction_en": "Name 3 sounds you hear.", "icon": "waves" },
+      { "instruction_es": "Respira profundo y confirma que estás presente.", "instruction_en": "Breathe deeply and confirm you are present.", "icon": "heart" }
+    ]
+  },
+  {
+    "id": 15,
+    "title_es": "Relajación antes de dormir",
+    "title_en": "Pre-sleep relaxation",
+    "description_es": "Rutina breve para preparar cuerpo y mente antes de descansar.",
+    "description_en": "A short routine to prepare body and mind before rest.",
+    "icon": "moon",
+    "duration_min": 10,
+    "difficulty": "beginner",
+    "sort_order": 15,
+    "steps": [
+      { "instruction_es": "Apaga pantallas y atenúa las luces.", "instruction_en": "Turn off screens and dim the lights.", "icon": "moon" },
+      { "instruction_es": "Respira lento por la nariz.", "instruction_en": "Breathe slowly through your nose.", "icon": "wind" },
+      { "instruction_es": "Relaja hombros, mandíbula y manos.", "instruction_en": "Relax shoulders, jaw and hands.", "icon": "shoulder" },
+      { "instruction_es": "Permanece en quietud hasta sentir sueño.", "instruction_en": "Stay still until you feel sleepy.", "icon": "bed" }
+    ]
+  },
+  {
+    "id": 16,
+    "title_es": "Liberación de manos",
+    "title_en": "Hand release",
+    "description_es": "Ideal tras escribir o usar el teclado; devuelve ligereza a tus manos.",
+    "description_en": "Ideal after typing; restores lightness to your hands.",
+    "icon": "hand",
+    "duration_min": 5,
+    "difficulty": "beginner",
+    "sort_order": 16,
+    "steps": [
+      { "instruction_es": "Abre y cierra los puños varias veces.", "instruction_en": "Open and close your fists several times.", "icon": "hand" },
+      { "instruction_es": "Estira cada dedo individualmente.", "instruction_en": "Stretch each finger individually.", "icon": "stretch" },
+      { "instruction_es": "Masajea la palma con el pulgar.", "instruction_en": "Massage your palm with your thumb.", "icon": "circle", "duration_sec": 45 },
+      { "instruction_es": "Sacude las manos y respira.", "instruction_en": "Shake your hands and breathe.", "icon": "wind" }
+    ]
+  },
+  {
+    "id": 17,
+    "title_es": "Meditación de luz",
+    "title_en": "Light meditation",
+    "description_es": "Imagina una luz cálida que recorre tu cuerpo sanando y calmando.",
+    "description_en": "Imagine warm light traveling through your body, healing and calming.",
+    "icon": "sun",
+    "duration_min": 12,
+    "difficulty": "intermediate",
+    "sort_order": 17,
+    "steps": [
+      { "instruction_es": "Visualiza una luz suave sobre tu cabeza.", "instruction_en": "Visualize a soft light above your head.", "icon": "sun" },
+      { "instruction_es": "Deja que descienda lentamente por el cuerpo.", "instruction_en": "Let it slowly descend through your body.", "icon": "arrow-up" },
+      { "instruction_es": "En cada zona, suelta tensión al exhalar.", "instruction_en": "In each area, release tension as you exhale.", "icon": "wind" },
+      { "instruction_es": "Termina con la luz envolviendo todo tu cuerpo.", "instruction_en": "End with the light surrounding your whole body.", "icon": "sparkles" }
+    ]
+  },
+  {
+    "id": 18,
+    "title_es": "Respiración coherente",
+    "title_en": "Coherent breathing",
+    "description_es": "Ritmo de 5 segundos por fase para sincronizar corazón y respiración.",
+    "description_en": "A 5-second per phase rhythm to sync heart and breath.",
+    "icon": "heart",
+    "duration_min": 10,
+    "difficulty": "intermediate",
+    "sort_order": 18,
+    "steps": [
+      { "instruction_es": "Inhala durante 5 segundos.", "instruction_en": "Inhale for 5 seconds.", "icon": "wind", "duration_sec": 5 },
+      { "instruction_es": "Exhala durante 5 segundos.", "instruction_en": "Exhale for 5 seconds.", "icon": "wind", "duration_sec": 5 },
+      { "instruction_es": "Mantén un ritmo constante y suave.", "instruction_en": "Keep a steady, gentle rhythm.", "icon": "heart" },
+      { "instruction_es": "Continúa durante 10 minutos.", "instruction_en": "Continue for 10 minutes.", "icon": "timer", "duration_sec": 600 }
+    ]
+  },
+  {
+    "id": 19,
+    "title_es": "Pausa consciente de 3 minutos",
+    "title_en": "3-minute mindful pause",
+    "description_es": "Micro-rutina para interrumpir el estrés durante el día laboral o académico.",
+    "description_en": "A micro-routine to interrupt stress during work or study.",
+    "icon": "timer",
+    "duration_min": 3,
+    "difficulty": "beginner",
+    "sort_order": 19,
+    "steps": [
+      { "instruction_es": "Detén lo que haces y siéntate erguido.", "instruction_en": "Stop what you are doing and sit upright.", "icon": "chair" },
+      { "instruction_es": "Toma tres respiraciones profundas.", "instruction_en": "Take three deep breaths.", "icon": "wind" },
+      { "instruction_es": "Observa cómo te sientes sin juzgar.", "instruction_en": "Notice how you feel without judging.", "icon": "heart" },
+      { "instruction_es": "Retoma tu actividad con intención.", "instruction_en": "Return to your activity with intention.", "icon": "sparkles" }
+    ]
+  },
+  {
+    "id": 20,
+    "title_es": "Cierre de jornada",
+    "title_en": "End-of-day closure",
+    "description_es": "Separa conscientemente el día activo del momento de descanso.",
+    "description_en": "Consciously separate your active day from your rest time.",
+    "icon": "moon",
+    "duration_min": 15,
+    "difficulty": "intermediate",
+    "sort_order": 20,
+    "steps": [
+      { "instruction_es": "Escribe una frase sobre cómo fue tu día.", "instruction_en": "Write one sentence about how your day went.", "icon": "pen" },
+      { "instruction_es": "Respira profundo y suelta los hombros.", "instruction_en": "Breathe deeply and drop your shoulders.", "icon": "shoulder" },
+      { "instruction_es": "Agradece algo positivo del día.", "instruction_en": "Appreciate one positive thing from the day.", "icon": "heart" },
+      { "instruction_es": "Realiza un escaneo corporal breve.", "instruction_en": "Do a brief body scan.", "icon": "scan" }
+    ]
+  }
+]

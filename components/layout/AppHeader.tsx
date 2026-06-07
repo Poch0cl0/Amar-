@@ -1,0 +1,195 @@
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import type { User } from '@supabase/supabase-js'
+import { LangToggle } from '@/components/common/LangToggle'
+import { useLocale } from '@/components/providers/LocaleProvider'
+import { loginPath } from '@/lib/auth-redirect'
+import { getTranslations } from '@/lib/i18n'
+import { createSupabaseClient } from '@/lib/supabase'
+
+const navigation = [
+  { label: 'Inicio',      to: '/' },
+  { label: 'Frases',      to: '/frases' },
+  { label: 'Productos',   to: '/productos' },
+  { label: 'Música',      to: '/melodias' },
+  { label: 'Ejercicios',  to: '/ejercicios' },
+  { label: 'Mi Progreso', to: '/progreso' },
+]
+
+export function AppHeader() {
+  const pathname = usePathname()
+  const { lang } = useLocale()
+  const headerCopy = getTranslations(lang).header
+  const [user, setUser] = useState<User | null>(null)
+  const [avatarOpen, setAvatarOpen] = useState(false)
+  const [isTransparent, setIsTransparent] = useState(false)
+
+  useEffect(() => {
+    function updateTransparency() {
+      setIsTransparent(window.scrollY > 0)
+    }
+
+    updateTransparency()
+    window.addEventListener('scroll', updateTransparency, { passive: true })
+    return () => window.removeEventListener('scroll', updateTransparency)
+  }, [])
+
+  useEffect(() => {
+    setIsTransparent(window.scrollY > 0)
+    setAvatarOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const supabase = createSupabaseClient()
+
+    supabase.auth.getSession().then(({ data }) => {
+      setUser(data.session?.user ?? null)
+    })
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => { listener.subscription.unsubscribe() }
+  }, [])
+
+  async function handleSignOut() {
+    const supabase = createSupabaseClient()
+    await supabase.auth.signOut()
+    setAvatarOpen(false)
+  }
+
+  const displayName = user?.user_metadata?.full_name as string | undefined
+  const initials = displayName
+    ? getInitials(displayName)
+    : user?.email?.slice(0, 2).toUpperCase() ?? '?'
+
+  return (
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        isTransparent
+          ? 'border-b border-transparent bg-transparent backdrop-blur-none'
+          : 'border-b border-earth-200/60 bg-cream/80 backdrop-blur-xl'
+      }`}
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image
+            src="/logo-amara-navbar.png"
+            alt="Amará"
+            width={1280}
+            height={249}
+            unoptimized
+            className="h-9 w-auto object-contain object-left sm:h-10"
+            priority
+          />
+        </Link>
+
+        <div className="hidden items-center gap-1 md:flex">
+          {navigation.map((item) => {
+            const isActive = item.to === '/'
+              ? pathname === '/'
+              : pathname.startsWith(item.to)
+            return (
+              <Link
+                key={item.to}
+                href={item.to}
+                className={`relative px-3 py-2 text-sm font-medium transition ${
+                  isActive
+                    ? 'text-earth-900'
+                    : 'text-earth-500 hover:text-earth-800'
+                }`}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute inset-x-3 bottom-0 h-[2px] rounded-full bg-rose-300" />
+                )}
+              </Link>
+            )
+          })}
+        </div>
+
+        <div className="flex items-center gap-3">
+          <LangToggle />
+          {!user ? (
+            <Link
+              href={loginPath(pathname)}
+              className="rounded-full border border-earth-300 px-5 py-2 text-sm font-medium text-earth-700 transition hover:border-rose-300 hover:text-rose-400"
+            >
+              {headerCopy.signIn}
+            </Link>
+          ) : (
+            <div className="relative">
+              <button
+                onClick={() => setAvatarOpen(v => !v)}
+                className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-rose-200 text-xs font-semibold text-rose-600 ring-2 ring-rose-300/40 transition hover:ring-rose-300"
+                aria-label={headerCopy.userMenu}
+              >
+                {user.user_metadata?.avatar_url ? (
+                  <Image
+                    src={user.user_metadata.avatar_url as string}
+                    alt="Avatar"
+                    width={36}
+                    height={36}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  initials
+                )}
+              </button>
+
+              {avatarOpen && (
+                <div className="absolute right-0 top-12 z-50 min-w-[180px] rounded-2xl border border-earth-200 bg-white py-2 shadow-[0_8px_30px_rgba(53,41,35,0.12)]">
+                  <Link
+                    href="/configuracion"
+                    onClick={() => setAvatarOpen(false)}
+                    className="block border-b border-earth-100 px-4 pb-2 transition hover:bg-sand-50"
+                  >
+                    <p className="text-xs font-semibold text-earth-700">
+                      {displayName ?? headerCopy.myAccount}
+                    </p>
+                    <p className="truncate text-xs text-earth-400">{user.email}</p>
+                  </Link>
+                  <Link
+                    href="/configuracion"
+                    onClick={() => setAvatarOpen(false)}
+                    className="block px-4 py-2 text-sm text-earth-600 transition hover:bg-sand-50 hover:text-earth-900"
+                  >
+                    {headerCopy.settings}
+                  </Link>
+                  <Link
+                    href="/progreso"
+                    onClick={() => setAvatarOpen(false)}
+                    className="block px-4 py-2 text-sm text-earth-600 transition hover:bg-sand-50 hover:text-earth-900"
+                  >
+                    {headerCopy.myProgress}
+                  </Link>
+                  <button
+                    onClick={handleSignOut}
+                    className="w-full px-4 py-2 text-left text-sm text-rose-400 transition hover:bg-rose-50"
+                  >
+                    {headerCopy.signOut}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+      </nav>
+    </header>
+  )
+}
+
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean)
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+  }
+  return parts[0]?.slice(0, 2).toUpperCase() ?? '?'
+}

@@ -1,0 +1,14 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Iniciar sesión | Amará',
+  description: 'Accede a tu cuenta Amará o crea una nueva para disfrutar de todos los beneficios.',
+}
+
+export default function LoginLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-cream font-sans antialiased">
+      {children}
+    </div>
+  )
+}
