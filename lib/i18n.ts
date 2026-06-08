@@ -174,7 +174,7 @@ export const translations = {
       blockSuccess: 'Bloqueaste a {name}. Sus frases ya no aparecerán en tu lista.',
       blockError: 'No se pudo bloquear al usuario. Intenta de nuevo.',
       blockTableMissing:
-        'Faltan permisos de bloqueo. Ejecuta supabase/migrations/blocked-users-grants.sql en Supabase.',
+        'Faltan permisos de bloqueo. Ejecuta supabase/migrations/phrases-block-fixes.sql en Supabase.',
       recipientBlockedYou: 'Este usuario no desea recibir tus frases.',
       cannotShareToSelf: 'No puedes compartir una frase contigo misma.',
       blockedTitle: 'Usuarios bloqueados',
@@ -186,7 +186,7 @@ export const translations = {
       unblockSuccess: 'Desbloqueaste a {email}.',
       unblockError: 'No se pudo desbloquear al usuario. Intenta de nuevo.',
       blockedRpcHint:
-        'Ejecuta supabase/migrations/blocked-users-list-rpc.sql en Supabase para ver los correos.',
+        'Ejecuta supabase/migrations/phrases-block-fixes.sql en Supabase para ver los correos bloqueados.',
     },
     productos: {
       eyebrow: 'Productos',
@@ -547,7 +547,7 @@ export const translations = {
       blockSuccess: 'You blocked {name}. Their phrases will no longer appear in your list.',
       blockError: 'Could not block the user. Please try again.',
       blockTableMissing:
-        'Blocking permissions are missing. Run supabase/migrations/blocked-users-grants.sql in Supabase.',
+        'Blocking permissions are missing. Run supabase/migrations/phrases-block-fixes.sql in Supabase.',
       recipientBlockedYou: 'This user does not want to receive your phrases.',
       cannotShareToSelf: 'You cannot share a phrase with yourself.',
       blockedTitle: 'Blocked users',
@@ -559,7 +559,7 @@ export const translations = {
       unblockSuccess: 'You unblocked {email}.',
       unblockError: 'Could not unblock the user. Please try again.',
       blockedRpcHint:
-        'Run supabase/migrations/blocked-users-list-rpc.sql in Supabase to show emails.',
+        'Run supabase/migrations/phrases-block-fixes.sql in Supabase to show blocked emails.',
     },
     productos: {
       eyebrow: 'Products',

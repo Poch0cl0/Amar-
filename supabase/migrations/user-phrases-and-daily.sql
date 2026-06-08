@@ -220,6 +220,10 @@ CREATE POLICY "shared: enviar propias"
     ON public.shared_phrases FOR INSERT
     WITH CHECK (sender_id = auth.uid());
 
+CREATE POLICY "shared: eliminar recibidas"
+    ON public.shared_phrases FOR DELETE
+    USING (recipient_id = auth.uid());
+
 -- Permitir ver el nombre del remitente en frases compartidas
 CREATE POLICY "Perfil: ver remitentes de frases compartidas"
     ON public.profiles FOR SELECT
@@ -239,7 +243,7 @@ GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT SELECT ON public.motivational_phrases TO anon, authenticated;
 GRANT SELECT, INSERT, UPDATE ON public.daily_phrase_state TO anon, authenticated;
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.user_phrases TO authenticated;
-GRANT SELECT, INSERT ON public.shared_phrases TO authenticated;
+GRANT SELECT, INSERT, DELETE ON public.shared_phrases TO authenticated;
 GRANT SELECT ON public.profiles TO authenticated;
 
 GRANT EXECUTE ON FUNCTION public.get_daily_phrase() TO anon, authenticated;

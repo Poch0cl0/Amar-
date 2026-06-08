@@ -90,9 +90,18 @@ export function getCategoryLabel(category: string, lang: Lang = 'es'): string {
 function isBlockedUsersUnavailable(error: { code?: string; message?: string }): boolean {
   return (
     error.code === 'PGRST205' ||
+    error.code === 'PGRST202' ||
     error.code === '42501' ||
     Boolean(error.message?.includes('permission denied for table blocked_users')) ||
     Boolean(error.message?.includes("Could not find the table 'public.blocked_users'"))
+  )
+}
+
+function isRpcMissing(error: { code?: string; message?: string }, rpcName: string): boolean {
+  return (
+    error.code === 'PGRST202' ||
+    Boolean(error.message?.includes(rpcName)) ||
+    Boolean(error.message?.includes('Could not find the function'))
   )
 }
 
@@ -102,7 +111,9 @@ export async function getBlockedUsers(): Promise<BlockedUser[]> {
   const { data, error } = await supabase.rpc('get_my_blocked_users')
 
   if (error) {
-    if (isBlockedUsersUnavailable(error)) return []
+    if (isBlockedUsersUnavailable(error) || isRpcMissing(error, 'get_my_blocked_users')) {
+      return []
+    }
     throw error
   }
 
@@ -164,6 +175,19 @@ export async function blockUserAndRemoveShares(
 ): Promise<void> {
   const supabase = createSupabaseClient()
 
+  const { error: rpcError } = await supabase.rpc('block_phrase_sender', {
+    p_blocked_id: blockedId,
+  })
+
+  if (!rpcError) return
+
+  if (!isRpcMissing(rpcError, 'block_phrase_sender')) {
+    if (isBlockedUsersUnavailable(rpcError)) {
+      throw new Error('BLOCKED_USERS_PERMISSION_DENIED')
+    }
+    throw rpcError
+  }
+
   const { error: blockError } = await supabase.from('blocked_users').upsert(
     { blocker_id: blockerId, blocked_id: blockedId },
     { onConflict: 'blocker_id,blocked_id' },
@@ -182,5 +206,10 @@ export async function blockUserAndRemoveShares(
     .eq('recipient_id', blockerId)
     .eq('sender_id', blockedId)
 
-  if (deleteError) throw deleteError
+  if (deleteError) {
+    if (deleteError.code === '42501') {
+      throw new Error('BLOCKED_USERS_PERMISSION_DENIED')
+    }
+    throw deleteError
+  }
 }

@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { useLocale } from '@/components/providers/LocaleProvider'
 import { safeRedirect } from '@/lib/auth-redirect'
+import { getClientSiteUrl } from '@/lib/site-url'
 import type { Lang } from '@/lib/i18n'
 import { friendlyLoginError, getTranslations, t } from '@/lib/i18n'
 import { createSupabaseClient } from '@/lib/supabase'
@@ -182,6 +183,7 @@ export function LoginPageContent() {
           data: {
             full_name: regFullName.trim(),
           },
+          emailRedirectTo: `${getClientSiteUrl()}/auth/callback?next=/`,
         },
       })
       if (error) {
