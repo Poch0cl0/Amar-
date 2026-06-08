@@ -26,11 +26,11 @@ export function CalendarDayCell({ year, month, day, log, onSelect }: CalendarDay
       type="button"
       disabled={disabled}
       onClick={() => onSelect(dateKey)}
-      className={`flex aspect-square items-center justify-center rounded-xl text-sm font-medium transition ${colorClass} ${textClass} ${
+      className={`flex aspect-square w-full min-w-0 items-center justify-center rounded-lg text-xs font-medium transition sm:rounded-xl sm:text-sm ${colorClass} ${textClass} ${
         disabled
           ? 'cursor-not-allowed opacity-40'
           : 'hover:ring-2 hover:ring-rose-300 hover:ring-offset-1'
-      } ${today ? 'ring-2 ring-earth-800 ring-offset-2' : ''}`}
+      } ${today ? 'ring-2 ring-earth-800 ring-offset-1 sm:ring-offset-2' : ''}`}
       aria-label={dateKey}
     >
       {day}

@@ -59,7 +59,7 @@ export function ProgressSidebar({
   ]
 
   return (
-    <aside className="space-y-5">
+    <aside className="min-w-0 w-full space-y-5">
       <div className="rounded-2xl border border-earth-100 bg-white p-4 shadow-card">
         <label className="block space-y-2">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-earth-500">
@@ -94,10 +94,10 @@ export function ProgressSidebar({
             key={card.label}
             className={`rounded-2xl border border-earth-100 bg-white p-4 shadow-card ${card.accent}`}
           >
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-earth-500">
+            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-earth-500 sm:text-[0.65rem] sm:tracking-[0.2em]">
               {card.label}
             </p>
-            <p className="mt-3 font-display text-[2.5rem] font-semibold leading-none tabular-nums tracking-tight text-earth-900">
+            <p className="mt-3 font-display text-3xl font-semibold leading-none tabular-nums tracking-tight text-earth-900 sm:text-[2.5rem]">
               {card.value}
             </p>
             <p className="mt-2 text-sm font-medium text-earth-500">{card.hint}</p>

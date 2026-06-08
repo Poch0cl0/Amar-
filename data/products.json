@@ -5,7 +5,7 @@
     "name_en": "Squishy / Mini Push Bubble Pops",
     "description_es": "Juguete sensorial que ayuda a liberar tensión física y mental, mejora la concentración y reduce la ansiedad mediante estimulación táctil. Portátil y fácil de usar en cualquier momento.",
     "description_en": "Sensory toy that helps release physical and mental tension, improves focus and reduces anxiety through tactile stimulation. Portable and easy to use anytime.",
-    "image_url": null,
+    "image_url": "./productos/squishy.png",
     "benefits": {
       "es": [
         "Ayudan a liberar tensión física y mental.",
@@ -28,7 +28,7 @@
     "name_en": "Sensory Stones",
     "description_es": "Piedras diseñadas para generar una experiencia táctil relajante, favoreciendo la conexión con el presente (mindfulness) y reduciendo el estrés mediante la estimulación de los sentidos.",
     "description_en": "Stones designed to provide a calming tactile experience, encouraging mindfulness and present-moment awareness, reducing stress by engaging the senses.",
-    "image_url": null,
+    "image_url": "./productos/piedra_sensorial.png",
     "benefits": {
       "es": [
         "Generan una experiencia táctil relajante.",
@@ -51,7 +51,7 @@
     "name_en": "Versatile Magic Ruler",
     "description_es": "Objeto lúdico y distractor que estimula la creatividad y la motricidad fina, permitiendo pausas activas en entornos académicos o laborales.",
     "description_en": "A playful and distracting tool that stimulates creativity and fine motor skills, supporting active breaks in academic or work settings.",
-    "image_url": null,
+    "image_url": "./productos/regla_magica.png",
     "benefits": {
       "es": [
         "Funciona como objeto lúdico y distractor.",
@@ -74,7 +74,7 @@
     "name_en": "Compressed Face Masks",
     "description_es": "Mascarillas faciales comprimidas que proporcionan cuidado facial rápido y práctico, refrescan y revitalizan la piel generando sensación de bienestar, reforzando la idea de autocuidado.",
     "description_en": "Compressed face masks that offer quick and practical facial care, refresh and revitalize the skin enhancing well-being, reinforcing the self-care aspect.",
-    "image_url": null,
+    "image_url": "./productos/mascarillas.png",
     "benefits": {
       "es": [
         "Proporcionan cuidado facial rápido y práctico.",
@@ -97,7 +97,7 @@
     "name_en": "Motivational Phrases",
     "description_es": "Tarjetas o impresos con mensajes positivos que refuerzan el bienestar emocional, ayudan a mantener una actitud optimista frente al estrés y generan conexión emocional con la marca.",
     "description_en": "Cards or prints with positive messages that strengthen emotional well-being, help maintain an optimistic attitude under stress, and build emotional connection with the brand.",
-    "image_url": null,
+    "image_url": "./productos/frases.png",
     "benefits": {
       "es": [
         "Refuerzan el bienestar emocional con mensajes positivos.",
@@ -120,7 +120,7 @@
     "name_en": "Modeling Clay",
     "description_es": "Arcilla moldeable que estimula la creatividad y la relajación mediante la manipulación manual, favorece la concentración y reduce pensamientos negativos, actuando como terapia ocupacional ligera.",
     "description_en": "Moldable clay that stimulates creativity and relaxation through manual activity, improves concentration and reduces negative thoughts, acting as a light occupational therapy tool.",
-    "image_url": null,
+    "image_url": "./productos/moldeados.png",
     "benefits": {
       "es": [
         "Estimula la creatividad y la relajación mediante la manipulación manual.",
@@ -143,7 +143,7 @@
     "name_en": "Portable Case / Pouch",
     "description_es": "Estuche que facilita el transporte y organización de los productos, reforzando la practicidad y el valor estético del kit, permitiendo usarlo en cualquier lugar: universidad, trabajo o casa.",
     "description_en": "Case that keeps products organized and easy to carry, enhancing practicality and aesthetic value, allowing use anywhere: university, workplace, or home.",
-    "image_url": null,
+    "image_url": "./productos/estuche.png",
     "benefits": {
       "es": [
         "Facilita el transporte y organización de los productos.",

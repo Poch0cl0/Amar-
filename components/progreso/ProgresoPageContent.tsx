@@ -38,13 +38,13 @@ export function ProgresoPageContent() {
     copy.defaultName
 
   return (
-    <section className="bg-[linear-gradient(180deg,_#fdf8f8_0%,_#F9F8F4_50%,_#f6f0e8_100%)] px-6 py-16 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="overflow-x-hidden bg-[linear-gradient(180deg,_#fdf8f8_0%,_#F9F8F4_50%,_#f6f0e8_100%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto w-full min-w-0 max-w-6xl">
         <header className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
             {copy.eyebrow}
           </p>
-          <h1 className="mt-3 font-display text-4xl text-earth-900 md:text-5xl">
+          <h1 className="mt-3 font-display text-3xl text-earth-900 sm:text-4xl md:text-5xl">
             {user ? copy.greeting.replace('{name}', displayName) : copy.title}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-earth-600">

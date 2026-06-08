@@ -8,7 +8,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AppHeader />
-      <main>{children}</main>
+      <main className="overflow-x-hidden">{children}</main>
       <AppFooter />
       <ChatWidget />
     </>

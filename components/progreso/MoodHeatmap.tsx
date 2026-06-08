@@ -29,10 +29,10 @@ export function MoodHeatmap({ year, month, logs, lang }: MoodHeatmapProps) {
   })
 
   return (
-    <div className="rounded-2xl border border-earth-100 bg-white p-5 shadow-card">
+    <div className="min-w-0 overflow-hidden rounded-2xl border border-earth-100 bg-white p-4 shadow-card sm:p-5">
       <h3 className="font-display text-lg text-earth-900">{copy.heatmapTitle}</h3>
 
-      <div className="mt-4 grid grid-cols-7 gap-1.5">
+      <div className="mt-4 grid min-w-0 grid-cols-7 gap-1 sm:gap-1.5">
         {cells.map((cell) => (
           <div
             key={cell.dateKey}

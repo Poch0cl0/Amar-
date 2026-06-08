@@ -53,11 +53,11 @@ export function EmotionalCalendar({
   }
 
   return (
-    <div className="rounded-3xl border border-rose-100/80 bg-white p-6 shadow-card">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-2xl text-earth-900">{copy.calendarTitle}</h2>
+    <div className="min-w-0 overflow-hidden rounded-3xl border border-rose-100/80 bg-white p-4 shadow-card sm:p-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="font-display text-xl text-earth-900 sm:text-2xl">{copy.calendarTitle}</h2>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center justify-center gap-2 sm:justify-end">
           <button
             type="button"
             onClick={onPrevMonth}
@@ -67,7 +67,7 @@ export function EmotionalCalendar({
           >
             <ChevronLeft />
           </button>
-          <span className="min-w-[8rem] text-center text-xs font-semibold capitalize text-earth-700 sm:text-sm">
+          <span className="min-w-[6.5rem] text-center text-xs font-semibold capitalize text-earth-700 sm:min-w-[8rem] sm:text-sm">
             {monthLabel}
           </span>
           <button
@@ -82,11 +82,11 @@ export function EmotionalCalendar({
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-7 gap-2">
+      <div className="mt-4 grid min-w-0 grid-cols-7 gap-1 sm:mt-6 sm:gap-2">
         {weekdays.map((label) => (
           <div
             key={label}
-            className="pb-1 text-center text-[0.65rem] font-semibold uppercase tracking-wide text-earth-400"
+            className="min-w-0 truncate pb-1 text-center text-[0.6rem] font-semibold uppercase tracking-wide text-earth-400 sm:text-[0.65rem]"
           >
             {label}
           </div>
@@ -108,9 +108,9 @@ export function EmotionalCalendar({
         )}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-4 border-t border-earth-100 pt-5">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-earth-100 pt-4 sm:mt-6 sm:gap-4 sm:pt-5">
         {LEGEND_ITEMS.map((item) => (
-          <div key={item.key} className="flex items-center gap-2 text-xs text-earth-600">
+          <div key={item.key} className="flex items-center gap-1.5 text-[0.65rem] text-earth-600 sm:gap-2 sm:text-xs">
             <span className={`h-3 w-3 rounded-full ${item.color}`} />
             <span>{copy.legend[item.key as keyof typeof copy.legend]}</span>
           </div>

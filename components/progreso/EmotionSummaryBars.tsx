@@ -22,7 +22,7 @@ export function EmotionSummaryBars({ logs, lang }: EmotionSummaryBarsProps) {
   const percentages = computeEmotionPercentages(logs)
 
   return (
-    <div className="rounded-2xl border border-earth-100 bg-white p-5 shadow-card">
+    <div className="min-w-0 overflow-hidden rounded-2xl border border-earth-100 bg-white p-4 shadow-card sm:p-5">
       <h3 className="font-display text-lg text-earth-900">{copy.summaryTitle}</h3>
 
       <div className="mt-5 space-y-4">

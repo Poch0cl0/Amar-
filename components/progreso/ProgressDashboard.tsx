@@ -102,7 +102,7 @@ export function ProgressDashboard({ userId, lang }: ProgressDashboardProps) {
         </p>
       )}
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px]">
+      <div className="grid min-w-0 max-w-full grid-cols-1 gap-8 overflow-hidden lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px]">
         <EmotionalCalendar
           year={year}
           month={month}
