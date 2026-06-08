@@ -119,6 +119,7 @@ export function LoginPageContent() {
   const copy = getTranslations(lang).login
 
   const redirectTo = safeRedirect(searchParams.get('redirect'))
+  const authError = searchParams.get('error') === 'auth'
   const [tab, setTab] = useState<Tab>('login')
 
   const [loginEmail, setLoginEmail] = useState('')
@@ -183,7 +184,7 @@ export function LoginPageContent() {
           data: {
             full_name: regFullName.trim(),
           },
-          emailRedirectTo: `${getClientSiteUrl()}/auth/callback?next=/`,
+          emailRedirectTo: `${getClientSiteUrl()}/auth/callback`,
         },
       })
       if (error) {
@@ -227,6 +228,12 @@ export function LoginPageContent() {
           loginLabel={copy.tabLogin}
           registerLabel={copy.tabRegister}
         />
+
+        {tab === 'login' && authError && (
+          <div className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600">
+            {copy.authCallbackError}
+          </div>
+        )}
 
         {tab === 'login' && (
           <form onSubmit={handleLogin} className="space-y-5">

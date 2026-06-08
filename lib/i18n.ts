@@ -119,6 +119,14 @@ export const translations = {
       passwordTooShort: 'La contraseña debe tener al menos 6 caracteres.',
       nameRequired: 'El nombre es obligatorio.',
       unexpectedError: 'Ocurrió un error inesperado. Intenta de nuevo.',
+      authCallbackError:
+        'No pudimos validar tu correo. Solicita un nuevo enlace o intenta iniciar sesión.',
+      emailConfirmedTitle: '¡Cuenta validada!',
+      emailConfirmedDesc:
+        'Tu correo fue confirmado exitosamente. Ya puedes iniciar sesión y disfrutar de todo AMARÁ.',
+      emailConfirmedHint: 'Si ya iniciaste sesión, te llevaremos al inicio en unos segundos.',
+      emailConfirmedLogin: 'Iniciar sesión',
+      emailConfirmedHome: 'Ir al inicio',
     },
     frases: {
       heroTitle: 'Frases para tu día',
@@ -187,6 +195,23 @@ export const translations = {
       unblockError: 'No se pudo desbloquear al usuario. Intenta de nuevo.',
       blockedRpcHint:
         'Ejecuta supabase/migrations/phrases-block-fixes.sql en Supabase para ver los correos bloqueados.',
+    },
+    nosotros: {
+      eyebrow: 'Nosotros',
+      title: 'Un espacio de calma, apoyo y bienestar emocional.',
+      description:
+        'AMARÁ nace para acompañar a personas que buscan pausas más conscientes, herramientas prácticas de autocuidado y un refugio digital donde sentirse escuchadas.',
+      paragraph1:
+        'Creemos que el bienestar emocional puede integrarse en la vida diaria con gestos sencillos: un kit antiestrés, una melodía suave, un ejercicio de respiración o una palabra que invite a reconectar contigo.',
+      paragraph2:
+        'Nuestro compromiso es ofrecer soluciones innovadoras, accesibles y humanas que ayuden a gestionar el estrés y cultivar momentos de calma real.',
+      missionTitle: 'Misión',
+      missionText:
+        'Brindar bienestar emocional a través de soluciones innovadoras, accesibles y prácticas que ayuden a las personas a gestionar el estrés y fomentar el autocuidado. Mediante nuestros kits antiestrés, herramientas digitales y acompañamiento emocional, buscamos generar experiencias que promuevan la calma, la relajación y la conexión con uno mismo.',
+      visionTitle: 'Visión',
+      visionText:
+        'Convertirnos en una marca líder de bienestar integral, ofreciendo diversas líneas de productos y servicios innovadores que promuevan la salud emocional, el autocuidado y la calidad de vida, creando una comunidad que encuentre en AMARÁ un espacio de apoyo, confianza y bienestar.',
+      imageAlt: 'Comunidad AMARÁ',
     },
     productos: {
       eyebrow: 'Productos',
@@ -492,6 +517,14 @@ export const translations = {
       passwordTooShort: 'Password must be at least 6 characters.',
       nameRequired: 'Name is required.',
       unexpectedError: 'An unexpected error occurred. Please try again.',
+      authCallbackError:
+        'We could not verify your email. Request a new link or try signing in.',
+      emailConfirmedTitle: 'Account verified!',
+      emailConfirmedDesc:
+        'Your email was confirmed successfully. You can now sign in and enjoy all of AMARÁ.',
+      emailConfirmedHint: 'If you are already signed in, we will take you home in a few seconds.',
+      emailConfirmedLogin: 'Sign in',
+      emailConfirmedHome: 'Go to home',
     },
     frases: {
       heroTitle: 'Phrases for your day',
@@ -560,6 +593,23 @@ export const translations = {
       unblockError: 'Could not unblock the user. Please try again.',
       blockedRpcHint:
         'Run supabase/migrations/phrases-block-fixes.sql in Supabase to show blocked emails.',
+    },
+    nosotros: {
+      eyebrow: 'About us',
+      title: 'A space for calm, support and emotional wellness.',
+      description:
+        'AMARÁ was born to support people seeking more mindful pauses, practical self-care tools and a digital refuge where they feel heard.',
+      paragraph1:
+        'We believe emotional wellness can be part of everyday life through simple gestures: a stress-relief kit, a soft melody, a breathing exercise or a word that invites reconnection with yourself.',
+      paragraph2:
+        'Our commitment is to offer innovative, accessible and human solutions that help manage stress and cultivate real moments of calm.',
+      missionTitle: 'Mission',
+      missionText:
+        'To provide emotional wellness through innovative, accessible and practical solutions that help people manage stress and foster self-care. Through our stress-relief kits, digital tools and emotional support, we seek to create experiences that promote calm, relaxation and connection with oneself.',
+      visionTitle: 'Vision',
+      visionText:
+        'To become a leading holistic wellness brand, offering diverse lines of innovative products and services that promote emotional health, self-care and quality of life, building a community that finds in AMARÁ a space of support, trust and well-being.',
+      imageAlt: 'AMARÁ community',
     },
     productos: {
       eyebrow: 'Products',
