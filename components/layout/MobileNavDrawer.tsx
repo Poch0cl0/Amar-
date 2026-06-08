@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { User } from '@supabase/supabase-js'
 import type { ReactNode } from 'react'
+import { LangToggle } from '@/components/common/LangToggle'
 import { loginPath } from '@/lib/auth-redirect'
 import type { Lang } from '@/lib/i18n'
 import { getTranslations } from '@/lib/i18n'
@@ -132,6 +133,11 @@ export function MobileNavDrawer({ open, onClose, user, lang, onSignOut }: Mobile
         </div>
 
         <div className="shrink-0 border-t border-rose-100/80 px-4 pb-8 pt-4">
+          <div className="mb-4 flex items-center justify-between gap-3 rounded-2xl border border-earth-100 bg-white px-4 py-3">
+            <span className="text-sm font-medium text-earth-700">{copy.language}</span>
+            <LangToggle />
+          </div>
+
           {user ? (
             <button
               type="button"

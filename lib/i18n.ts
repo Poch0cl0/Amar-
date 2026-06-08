@@ -22,6 +22,7 @@ export const translations = {
       navMusic: 'Música',
       navExercises: 'Ejercicios',
       navProgress: 'Mi Progreso',
+      language: 'Idioma',
     },
     footer: {
       description:
@@ -176,6 +177,16 @@ export const translations = {
         'Faltan permisos de bloqueo. Ejecuta supabase/migrations/blocked-users-grants.sql en Supabase.',
       recipientBlockedYou: 'Este usuario no desea recibir tus frases.',
       cannotShareToSelf: 'No puedes compartir una frase contigo misma.',
+      blockedTitle: 'Usuarios bloqueados',
+      blockedDesc: 'Correos que has bloqueado desde frases compartidas.',
+      loadingBlocked: 'Cargando bloqueados…',
+      emptyBlocked: 'No tienes usuarios bloqueados.',
+      unblock: 'Desbloquear',
+      unblocking: 'Desbloqueando…',
+      unblockSuccess: 'Desbloqueaste a {email}.',
+      unblockError: 'No se pudo desbloquear al usuario. Intenta de nuevo.',
+      blockedRpcHint:
+        'Ejecuta supabase/migrations/blocked-users-list-rpc.sql en Supabase para ver los correos.',
     },
     productos: {
       eyebrow: 'Productos',
@@ -384,6 +395,7 @@ export const translations = {
       navMusic: 'Music',
       navExercises: 'Exercises',
       navProgress: 'My Progress',
+      language: 'Language',
     },
     footer: {
       description:
@@ -538,6 +550,16 @@ export const translations = {
         'Blocking permissions are missing. Run supabase/migrations/blocked-users-grants.sql in Supabase.',
       recipientBlockedYou: 'This user does not want to receive your phrases.',
       cannotShareToSelf: 'You cannot share a phrase with yourself.',
+      blockedTitle: 'Blocked users',
+      blockedDesc: 'Emails you blocked from shared phrases.',
+      loadingBlocked: 'Loading blocked users…',
+      emptyBlocked: 'You have no blocked users.',
+      unblock: 'Unblock',
+      unblocking: 'Unblocking…',
+      unblockSuccess: 'You unblocked {email}.',
+      unblockError: 'Could not unblock the user. Please try again.',
+      blockedRpcHint:
+        'Run supabase/migrations/blocked-users-list-rpc.sql in Supabase to show emails.',
     },
     productos: {
       eyebrow: 'Products',

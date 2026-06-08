@@ -28,6 +28,13 @@ export type SharedPhrase = {
   sender_name: string
 }
 
+export type BlockedUser = {
+  blocked_id: string
+  email: string
+  display_name: string
+  blocked_at: string
+}
+
 export const PHRASE_CATEGORIES = [
   { value: 'ansiedad', label: 'Ansiedad' },
   { value: 'autocuidado', label: 'Autocuidado' },
@@ -87,6 +94,36 @@ function isBlockedUsersUnavailable(error: { code?: string; message?: string }): 
     Boolean(error.message?.includes('permission denied for table blocked_users')) ||
     Boolean(error.message?.includes("Could not find the table 'public.blocked_users'"))
   )
+}
+
+export async function getBlockedUsers(): Promise<BlockedUser[]> {
+  const supabase = createSupabaseClient()
+
+  const { data, error } = await supabase.rpc('get_my_blocked_users')
+
+  if (error) {
+    if (isBlockedUsersUnavailable(error)) return []
+    throw error
+  }
+
+  return (data ?? []) as BlockedUser[]
+}
+
+export async function unblockUser(blockerId: string, blockedId: string): Promise<void> {
+  const supabase = createSupabaseClient()
+
+  const { error } = await supabase
+    .from('blocked_users')
+    .delete()
+    .eq('blocker_id', blockerId)
+    .eq('blocked_id', blockedId)
+
+  if (error) {
+    if (isBlockedUsersUnavailable(error)) {
+      throw new Error('BLOCKED_USERS_PERMISSION_DENIED')
+    }
+    throw error
+  }
 }
 
 export async function getBlockedSenderIds(blockerId: string): Promise<string[]> {

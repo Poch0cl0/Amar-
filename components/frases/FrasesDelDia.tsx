@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { loginPath } from '@/lib/auth-redirect'
 import type { User } from '@supabase/supabase-js'
+import { BlockedUsersSection } from '@/components/frases/BlockedUsersSection'
 import { CreatePhraseForm } from '@/components/frases/CreatePhraseForm'
 import { SharePhraseDialog } from '@/components/frases/SharePhraseDialog'
 import { SharedPhraseCard } from '@/components/frases/SharedPhraseCard'
@@ -15,7 +16,10 @@ import { getTranslations } from '@/lib/i18n'
 import {
   blockUserAndRemoveShares,
   getBlockedSenderIds,
+  getBlockedUsers,
   getCategoryLabel,
+  unblockUser,
+  type BlockedUser,
   type SharedPhrase,
   type SystemPhrase,
   type UserPhrase,
@@ -43,6 +47,11 @@ export function FrasesDelDia() {
   const [phrasesRefreshKey, setPhrasesRefreshKey] = useState(0)
   const [blockingSenderId, setBlockingSenderId] = useState<string | null>(null)
   const [blockMessage, setBlockMessage] = useState('')
+  const [blockedUsers, setBlockedUsers] = useState<BlockedUser[]>([])
+  const [loadingBlockedUsers, setLoadingBlockedUsers] = useState(false)
+  const [unblockingId, setUnblockingId] = useState<string | null>(null)
+  const [unblockMessage, setUnblockMessage] = useState('')
+  const [blockedRpcMissing, setBlockedRpcMissing] = useState(false)
 
   const userId = user?.id ?? null
   const fetchIdRef = useRef(0)
@@ -66,6 +75,7 @@ export function FrasesDelDia() {
       setBlockMessage(
         getTranslations(lang).frases.blockSuccess.replace('{name}', senderName),
       )
+      setPhrasesRefreshKey((k) => k + 1)
     } catch (err) {
       const message =
         err instanceof Error &&
@@ -76,6 +86,26 @@ export function FrasesDelDia() {
       setBlockMessage(message)
     } finally {
       setBlockingSenderId(null)
+    }
+  }
+
+  async function handleUnblock(blockedId: string, email: string) {
+    if (!userId) return
+
+    setUnblockingId(blockedId)
+    setUnblockMessage('')
+
+    try {
+      await unblockUser(userId, blockedId)
+      setBlockedUsers((current) => current.filter((user) => user.blocked_id !== blockedId))
+      setUnblockMessage(
+        getTranslations(lang).frases.unblockSuccess.replace('{email}', email),
+      )
+      setPhrasesRefreshKey((k) => k + 1)
+    } catch {
+      setUnblockMessage(getTranslations(lang).frases.unblockError)
+    } finally {
+      setUnblockingId(null)
     }
   }
 
@@ -127,7 +157,10 @@ export function FrasesDelDia() {
     if (!userId) {
       setMyPhrases([])
       setSharedPhrases([])
+      setBlockedUsers([])
       setLoadingUserPhrases(false)
+      setLoadingBlockedUsers(false)
+      setBlockedRpcMissing(false)
       return
     }
 
@@ -136,10 +169,30 @@ export function FrasesDelDia() {
 
     async function loadUserPhrases() {
       setLoadingUserPhrases(true)
+      setLoadingBlockedUsers(true)
       try {
         const supabase = createSupabaseClient()
 
-        const blockedSenderIds = await getBlockedSenderIds(userId!)
+        let rpcMissing = false
+
+        const [blockedSenderIds, blockedUsersResult] = await Promise.all([
+          getBlockedSenderIds(userId!),
+          getBlockedUsers().catch((err) => {
+            const message = err instanceof Error ? err.message : ''
+            if (
+              message.includes('get_my_blocked_users') ||
+              message.includes('Could not find the function')
+            ) {
+              rpcMissing = true
+            }
+            return [] as BlockedUser[]
+          }),
+        ])
+
+        if (cancelled || fetchId !== fetchIdRef.current) return
+
+        setBlockedUsers(blockedUsersResult)
+        setBlockedRpcMissing(rpcMissing)
 
         const [ownResult, sharedResult] = await Promise.all([
           supabase
@@ -194,6 +247,7 @@ export function FrasesDelDia() {
       } finally {
         if (!cancelled && fetchId === fetchIdRef.current) {
           setLoadingUserPhrases(false)
+          setLoadingBlockedUsers(false)
         }
       }
     }
@@ -371,6 +425,15 @@ export function FrasesDelDia() {
                 </div>
               )}
             </section>
+
+            <BlockedUsersSection
+              users={blockedUsers}
+              loading={loadingBlockedUsers}
+              unblockingId={unblockingId}
+              message={unblockMessage}
+              showRpcHint={blockedRpcMissing && blockedUsers.length === 0}
+              onUnblock={handleUnblock}
+            />
           </div>
         )}
       </div>

@@ -132,12 +132,12 @@ BEGIN
     v_blocked := array_append(v_blocked, v_new_phrase_id);
 
     IF v_has_state THEN
-        UPDATE public.daily_phrase_state
+        UPDATE public.daily_phrase_state dps
         SET phrase_date = v_today,
             phrase_id = v_new_phrase_id,
             blocked_ids = v_blocked,
             updated_at = NOW()
-        WHERE id = v_state.id;
+        WHERE dps.id = v_state.id;
     ELSE
         INSERT INTO public.daily_phrase_state (user_id, phrase_date, phrase_id, blocked_ids)
         VALUES (v_user_id, v_today, v_new_phrase_id, v_blocked);
