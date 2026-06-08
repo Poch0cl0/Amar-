@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
-import { AppFooter } from '@/components/layout/AppFooter'
-import { AppHeader } from '@/components/layout/AppHeader'
-import { ChatWidget } from '@/components/interactive/ChatWidget'
+import { AppShell } from '@/components/layout/AppShell'
 import { LocaleProvider } from '@/components/providers/LocaleProvider'
 import './globals.css'
 
@@ -39,10 +37,7 @@ export default function RootLayout({
       <body className="bg-sand-50 text-earth-950 antialiased">
         <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(166,201,185,0.2),_transparent_35%),linear-gradient(180deg,_#fcfaf5_0%,_#f6f0e8_100%)]">
           <LocaleProvider>
-            <AppHeader />
-            <main>{children}</main>
-            <AppFooter />
-            <ChatWidget />
+            <AppShell>{children}</AppShell>
           </LocaleProvider>
         </div>
       </body>

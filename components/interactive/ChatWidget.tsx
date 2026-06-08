@@ -255,11 +255,22 @@ export function ChatWidget() {
     }
   }
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [isOpen])
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <>
       {isOpen && (
         <div
-          className="flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-earth-200 bg-white shadow-soft"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-white pt-[env(safe-area-inset-top,0px)] md:inset-auto md:bottom-6 md:right-6 md:left-auto md:top-auto md:h-[500px] md:w-[min(360px,calc(100vw-3rem))] md:rounded-2xl md:border md:border-earth-200 md:pt-0 md:shadow-soft"
           role="dialog"
           aria-label={copy.title}
         >
@@ -272,27 +283,41 @@ export function ChatWidget() {
           />
 
           {!user ? (
-            <ChatLoginGate lang={lang} />
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+              <ChatLoginGate lang={lang} />
+            </div>
           ) : (
-            <div className="flex min-h-0 flex-1">
+            <div className="relative flex min-h-0 flex-1">
               {sidebarOpen && (
-                <ChatSessionSidebar
-                  sessions={sessions}
-                  activeSessionId={activeSessionId}
-                  newConversationLabel={copy.newConversationBtn}
-                  defaultTitle={copy.newConversation}
-                  deleteLabel={copy.deleteChat}
-                  deleteConfirm={copy.deleteConfirm}
-                  deleteYes={copy.deleteYes}
-                  deleteNo={copy.deleteNo}
-                  deleting={deleting}
-                  onSelect={handleSelectSession}
-                  onNew={handleNewConversation}
-                  onDelete={handleDeleteSession}
-                />
+                <>
+                  <button
+                    type="button"
+                    className="absolute inset-0 z-10 bg-earth-950/20 md:hidden"
+                    aria-label="Cerrar historial"
+                    onClick={() => setSidebarOpen(false)}
+                  />
+                  <ChatSessionSidebar
+                    sessions={sessions}
+                    activeSessionId={activeSessionId}
+                    newConversationLabel={copy.newConversationBtn}
+                    defaultTitle={copy.newConversation}
+                    deleteLabel={copy.deleteChat}
+                    deleteConfirm={copy.deleteConfirm}
+                    deleteYes={copy.deleteYes}
+                    deleteNo={copy.deleteNo}
+                    deleting={deleting}
+                    onSelect={(sessionId) => {
+                      handleSelectSession(sessionId)
+                      setSidebarOpen(false)
+                    }}
+                    onNew={handleNewConversation}
+                    onDelete={handleDeleteSession}
+                    className="absolute inset-y-0 left-0 z-20 w-[min(75vw,16rem)] shadow-lg md:static md:z-auto md:w-36 md:shadow-none"
+                  />
+                </>
               )}
 
-              <div className="flex min-w-0 flex-1 flex-col">
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col">
                 {messages.length === 0 && !typing && (
                   <div className="border-b border-earth-100 px-3 py-3">
                     <p className="mb-2 text-xs text-earth-500">{copy.welcome}</p>
@@ -325,18 +350,20 @@ export function ChatWidget() {
         </div>
       )}
 
-      <button
-        type="button"
-        className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-soft transition hover:-translate-y-0.5 hover:opacity-90"
-        onClick={() => setIsOpen((open) => !open)}
-        aria-label={copy.openChat}
-        aria-expanded={isOpen}
-      >
-        <MessageCircleIcon className="h-6 w-6" />
-        {user && (
-          <span className="absolute right-1 top-1 h-3 w-3 rounded-full border-2 border-white bg-sage-500" />
-        )}
-      </button>
-    </div>
+      {!isOpen && (
+        <button
+          type="button"
+          className="fixed bottom-[max(1rem,env(safe-area-inset-bottom,1rem))] right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-soft transition hover:-translate-y-0.5 hover:opacity-90 md:bottom-6 md:right-6"
+          onClick={() => setIsOpen(true)}
+          aria-label={copy.openChat}
+          aria-expanded={isOpen}
+        >
+          <MessageCircleIcon className="h-6 w-6" />
+          {user && (
+            <span className="absolute right-1 top-1 h-3 w-3 rounded-full border-2 border-white bg-sage-500" />
+          )}
+        </button>
+      )}
+    </>
   )
 }

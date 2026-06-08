@@ -19,7 +19,7 @@ export function ChatInput({ value, placeholder, disabled = false, onChange, onSe
   }
 
   return (
-    <div className="flex items-end gap-2 border-t border-earth-100 p-3">
+    <div className="flex items-end gap-2 border-t border-earth-100 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0px))] md:pb-3">
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}

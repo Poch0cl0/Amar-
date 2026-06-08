@@ -6,9 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function LoginLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen bg-cream font-sans antialiased">
-      {children}
-    </div>
-  )
+  return children
 }

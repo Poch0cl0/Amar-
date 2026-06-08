@@ -34,7 +34,7 @@ export function ChatHeader({
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]">
           <SparklesIcon />
         </div>
-        <h2 className="font-display text-lg text-earth-900">{title}</h2>
+        <h2 className="truncate font-display text-base text-earth-900 sm:text-lg">{title}</h2>
       </div>
 
       <button

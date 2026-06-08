@@ -14,6 +14,7 @@ type ChatSessionSidebarProps = {
   deleteYes: string
   deleteNo: string
   deleting?: boolean
+  className?: string
   onSelect: (sessionId: string) => void
   onNew: () => void
   onDelete: (sessionId: string) => void
@@ -29,6 +30,7 @@ export function ChatSessionSidebar({
   deleteYes,
   deleteNo,
   deleting = false,
+  className = '',
   onSelect,
   onNew,
   onDelete,
@@ -36,7 +38,7 @@ export function ChatSessionSidebar({
   const [confirmingId, setConfirmingId] = useState<string | null>(null)
 
   return (
-    <aside className="flex w-36 shrink-0 flex-col border-r border-earth-100 bg-sand-50/80">
+    <aside className={`flex shrink-0 flex-col border-r border-earth-100 bg-sand-50/80 ${className}`}>
       <button
         type="button"
         onClick={onNew}
