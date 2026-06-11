@@ -109,24 +109,16 @@ export const translations = {
       createAccount: 'Crear cuenta',
       forgotPassword: '¿Olvidaste tu contraseña?',
       recoverHere: 'Recupérala aquí',
-      almostReady: '¡Casi listo!',
-      confirmEmailSent:
-        'Enviamos un enlace de confirmación a {email}. Revisa tu bandeja de entrada (y la carpeta de spam) para activar tu cuenta.',
-      goToLogin: 'Ir a iniciar sesión',
       showPassword: 'Mostrar contraseña',
       hidePassword: 'Ocultar contraseña',
       passwordsMismatch: 'Las contraseñas no coinciden.',
       passwordTooShort: 'La contraseña debe tener al menos 6 caracteres.',
       nameRequired: 'El nombre es obligatorio.',
       unexpectedError: 'Ocurrió un error inesperado. Intenta de nuevo.',
-      authCallbackError:
-        'No pudimos validar tu correo. Solicita un nuevo enlace o intenta iniciar sesión.',
-      emailConfirmedTitle: '¡Cuenta validada!',
-      emailConfirmedDesc:
-        'Tu correo fue confirmado exitosamente. Ya puedes iniciar sesión y disfrutar de todo AMARÁ.',
-      emailConfirmedHint: 'Si ya iniciaste sesión, te llevaremos al inicio en unos segundos.',
-      emailConfirmedLogin: 'Iniciar sesión',
-      emailConfirmedHome: 'Ir al inicio',
+      signupServerError:
+        'No se pudo crear la cuenta (error del servidor). En Supabase: desactiva Confirm email y elimina el Send Email Hook en Authentication → Hooks.',
+      signupNoSession:
+        'La cuenta no se activó al instante. En Supabase → Authentication → Providers → Email, desactiva Confirm email.',
     },
     frases: {
       heroTitle: 'Frases para tu día',
@@ -507,24 +499,16 @@ export const translations = {
       createAccount: 'Create account',
       forgotPassword: 'Forgot your password?',
       recoverHere: 'Recover it here',
-      almostReady: 'Almost there!',
-      confirmEmailSent:
-        'We sent a confirmation link to {email}. Check your inbox (and spam folder) to activate your account.',
-      goToLogin: 'Go to sign in',
       showPassword: 'Show password',
       hidePassword: 'Hide password',
       passwordsMismatch: 'Passwords do not match.',
       passwordTooShort: 'Password must be at least 6 characters.',
       nameRequired: 'Name is required.',
       unexpectedError: 'An unexpected error occurred. Please try again.',
-      authCallbackError:
-        'We could not verify your email. Request a new link or try signing in.',
-      emailConfirmedTitle: 'Account verified!',
-      emailConfirmedDesc:
-        'Your email was confirmed successfully. You can now sign in and enjoy all of AMARÁ.',
-      emailConfirmedHint: 'If you are already signed in, we will take you home in a few seconds.',
-      emailConfirmedLogin: 'Sign in',
-      emailConfirmedHome: 'Go to home',
+      signupServerError:
+        'Could not create the account (server error). In Supabase: disable Confirm email and remove the Send Email Hook under Authentication → Hooks.',
+      signupNoSession:
+        'The account was not activated immediately. In Supabase → Authentication → Providers → Email, disable Confirm email.',
     },
     frases: {
       heroTitle: 'Phrases for your day',
@@ -845,10 +829,6 @@ const LOGIN_ERROR_MAP: Record<string, Record<Lang, string>> = {
   'Invalid login credentials': {
     es: 'Correo o contraseña incorrectos.',
     en: 'Incorrect email or password.',
-  },
-  'Email not confirmed': {
-    es: 'Confirma tu correo antes de iniciar sesión.',
-    en: 'Confirm your email before signing in.',
   },
   'User already registered': {
     es: 'Ya existe una cuenta con ese correo.',

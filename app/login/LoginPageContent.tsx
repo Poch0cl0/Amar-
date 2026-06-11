@@ -5,9 +5,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { useLocale } from '@/components/providers/LocaleProvider'
 import { safeRedirect } from '@/lib/auth-redirect'
-import { getClientSiteUrl } from '@/lib/site-url'
 import type { Lang } from '@/lib/i18n'
-import { friendlyLoginError, getTranslations, t } from '@/lib/i18n'
+import { friendlyLoginError, getTranslations } from '@/lib/i18n'
 import { createSupabaseClient } from '@/lib/supabase'
 
 type Tab = 'login' | 'registro'
@@ -119,7 +118,6 @@ export function LoginPageContent() {
   const copy = getTranslations(lang).login
 
   const redirectTo = safeRedirect(searchParams.get('redirect'))
-  const authError = searchParams.get('error') === 'auth'
   const [tab, setTab] = useState<Tab>('login')
 
   const [loginEmail, setLoginEmail] = useState('')
@@ -132,7 +130,6 @@ export function LoginPageContent() {
   const [regConfirm, setRegConfirm] = useState('')
   const [regFullName, setRegFullName] = useState('')
   const [regError, setRegError] = useState('')
-  const [regSuccess, setRegSuccess] = useState(false)
   const [regLoading, setRegLoading] = useState(false)
 
   async function handleLogin(e: React.FormEvent) {
@@ -177,20 +174,26 @@ export function LoginPageContent() {
     setRegLoading(true)
     try {
       const supabase = createSupabaseClient()
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: regEmail,
         password: regPassword,
         options: {
           data: {
             full_name: regFullName.trim(),
           },
-          emailRedirectTo: `${getClientSiteUrl()}/auth/callback`,
         },
       })
       if (error) {
-        setRegError(friendlyLoginError(error.message, lang))
+        const isServerError =
+          error.status === 500 ||
+          /hook|email|smtp|send.*mail/i.test(error.message)
+        setRegError(
+          isServerError ? copy.signupServerError : friendlyLoginError(error.message, lang),
+        )
+      } else if (data.session) {
+        router.push(redirectTo)
       } else {
-        setRegSuccess(true)
+        setRegError(copy.signupNoSession)
       }
     } catch {
       setRegError(copy.unexpectedError)
@@ -223,17 +226,10 @@ export function LoginPageContent() {
             setTab(next)
             setLoginError('')
             setRegError('')
-            if (next === 'login') setRegSuccess(false)
           }}
           loginLabel={copy.tabLogin}
           registerLabel={copy.tabRegister}
         />
-
-        {tab === 'login' && authError && (
-          <div className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600">
-            {copy.authCallbackError}
-          </div>
-        )}
 
         {tab === 'login' && (
           <form onSubmit={handleLogin} className="space-y-5">
@@ -280,7 +276,7 @@ export function LoginPageContent() {
           </form>
         )}
 
-        {tab === 'registro' && !regSuccess && (
+        {tab === 'registro' && (
           <form onSubmit={handleRegistro} className="space-y-5">
             <label className="block space-y-2">
               <span className="text-sm font-medium text-earth-700">{copy.name}</span>
@@ -342,29 +338,6 @@ export function LoginPageContent() {
               {regLoading ? copy.creating : copy.createAccount}
             </button>
           </form>
-        )}
-
-        {tab === 'registro' && regSuccess && (
-          <div className="space-y-6 py-2 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-rose-100">
-              <svg className="h-8 w-8 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0-9.75 6.75L2.25 6.75" />
-              </svg>
-            </div>
-            <div className="space-y-2">
-              <p className="font-display text-2xl text-earth-900">{copy.almostReady}</p>
-              <p className="text-sm leading-relaxed text-earth-500">
-                {t(lang, 'login.confirmEmailSent', { email: regEmail })}
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => { setTab('login'); setRegSuccess(false) }}
-              className="w-full rounded-full bg-[#C8A0A0] py-3.5 text-sm font-semibold text-earth-900 transition hover:bg-[#b89090]"
-            >
-              {copy.goToLogin}
-            </button>
-          </div>
         )}
       </div>
     </section>
