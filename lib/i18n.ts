@@ -120,6 +120,36 @@ export const translations = {
       signupNoSession:
         'La cuenta no se activó al instante. En Supabase → Authentication → Providers → Email, desactiva Confirm email.',
     },
+    passwordRecovery: {
+      requestTitle: 'Recupera tu acceso',
+      requestDescription:
+        'Ingresa el correo de tu cuenta y te enviaremos un enlace seguro para restablecer tu contraseña.',
+      emailSentTitle: 'Revisa tu correo',
+      emailSentDescription:
+        'Si existe una cuenta con {email}, recibirás un enlace para restablecer tu contraseña en los próximos minutos.',
+      emailSentHint: 'Revisa también la carpeta de spam si no lo ves pronto.',
+      sendLink: 'Enviar enlace de recuperación',
+      sending: 'Enviando…',
+      backToLogin: 'Volver a iniciar sesión',
+      updateTitle: 'Nueva contraseña',
+      updateDescription: 'Elige una contraseña segura para volver a tu espacio Amará.',
+      newPassword: 'Nueva contraseña',
+      confirmPassword: 'Confirmar nueva contraseña',
+      updatePassword: 'Guardar contraseña',
+      updating: 'Guardando…',
+      successTitle: 'Contraseña actualizada',
+      successDescription: 'Tu acceso quedó restablecido. Ya puedes iniciar sesión con tu nueva contraseña.',
+      goToLogin: 'Ir a iniciar sesión',
+      invalidLinkTitle: 'Enlace inválido o expirado',
+      invalidLinkDescription:
+        'El enlace de recuperación ya no es válido. Solicita uno nuevo para continuar.',
+      requestNewLink: 'Solicitar nuevo enlace',
+      checkingLink: 'Verificando enlace…',
+      sendError: 'No pudimos enviar el correo. Intenta de nuevo.',
+      updateError: 'No se pudo actualizar la contraseña. Intenta de nuevo.',
+      rateLimitError: 'Demasiados intentos. Espera unos minutos e inténtalo de nuevo.',
+      unexpectedError: 'Ocurrió un error inesperado. Intenta de nuevo.',
+    },
     frases: {
       heroTitle: 'Frases para tu día',
       heroSubtitle1: 'Encuentra la palabra precisa que tu alma necesita hoy.',
@@ -394,6 +424,16 @@ export const translations = {
       forgotPassword: '¿Olvidaste tu contraseña?',
       resetHere: 'Restablécela aquí',
     },
+    errors: {
+      notFoundTitle: 'Página no encontrada',
+      notFoundDescription:
+        'La ruta que buscas no existe o fue movida. Vuelve al inicio para seguir explorando Amará.',
+      backHome: 'Volver al inicio',
+      errorTitle: 'Algo salió mal',
+      errorDescription:
+        'Ocurrió un error inesperado. Puedes intentar de nuevo o volver al inicio.',
+      retry: 'Intentar de nuevo',
+    },
   },
   en: {
     header: {
@@ -509,6 +549,36 @@ export const translations = {
         'Could not create the account (server error). In Supabase: disable Confirm email and remove the Send Email Hook under Authentication → Hooks.',
       signupNoSession:
         'The account was not activated immediately. In Supabase → Authentication → Providers → Email, disable Confirm email.',
+    },
+    passwordRecovery: {
+      requestTitle: 'Recover your access',
+      requestDescription:
+        'Enter your account email and we will send you a secure link to reset your password.',
+      emailSentTitle: 'Check your email',
+      emailSentDescription:
+        'If an account exists for {email}, you will receive a password reset link within the next few minutes.',
+      emailSentHint: 'Also check your spam folder if you do not see it soon.',
+      sendLink: 'Send recovery link',
+      sending: 'Sending…',
+      backToLogin: 'Back to sign in',
+      updateTitle: 'New password',
+      updateDescription: 'Choose a secure password to return to your Amará space.',
+      newPassword: 'New password',
+      confirmPassword: 'Confirm new password',
+      updatePassword: 'Save password',
+      updating: 'Saving…',
+      successTitle: 'Password updated',
+      successDescription: 'Your access has been restored. You can now sign in with your new password.',
+      goToLogin: 'Go to sign in',
+      invalidLinkTitle: 'Invalid or expired link',
+      invalidLinkDescription:
+        'This recovery link is no longer valid. Request a new one to continue.',
+      requestNewLink: 'Request a new link',
+      checkingLink: 'Verifying link…',
+      sendError: 'We could not send the email. Please try again.',
+      updateError: 'Could not update your password. Please try again.',
+      rateLimitError: 'Too many attempts. Wait a few minutes and try again.',
+      unexpectedError: 'An unexpected error occurred. Please try again.',
     },
     frases: {
       heroTitle: 'Phrases for your day',
@@ -783,6 +853,16 @@ export const translations = {
       passwordsMismatch: 'New passwords do not match.',
       forgotPassword: 'Forgot your password?',
       resetHere: 'Reset it here',
+    },
+    errors: {
+      notFoundTitle: 'Page not found',
+      notFoundDescription:
+        'The page you are looking for does not exist or was moved. Go back home to keep exploring Amará.',
+      backHome: 'Back to home',
+      errorTitle: 'Something went wrong',
+      errorDescription:
+        'An unexpected error occurred. You can try again or return to the home page.',
+      retry: 'Try again',
     },
   },
 } as const

@@ -1,8 +1,15 @@
 'use client'
 
-import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
+import { AuthPageShell } from '@/components/auth/AuthPageShell'
+import { PasswordInput } from '@/components/auth/PasswordInput'
+import {
+  authErrorBoxClass,
+  authInputClass,
+  authPrimaryButtonClass,
+} from '@/components/auth/auth-form-styles'
 import { useLocale } from '@/components/providers/LocaleProvider'
 import { safeRedirect } from '@/lib/auth-redirect'
 import type { Lang } from '@/lib/i18n'
@@ -10,67 +17,6 @@ import { friendlyLoginError, getTranslations } from '@/lib/i18n'
 import { createSupabaseClient } from '@/lib/supabase'
 
 type Tab = 'login' | 'registro'
-
-const inputClass =
-  'w-full rounded-2xl border border-rose-100 bg-[#FFF3F3] px-4 py-3.5 text-sm text-earth-900 placeholder:text-earth-400 outline-none transition focus:border-rose-300 focus:ring-2 focus:ring-rose-100'
-
-function PasswordInput({
-  id,
-  value,
-  onChange,
-  placeholder,
-  lang,
-  required = true,
-}: {
-  id: string
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
-  lang: Lang
-  required?: boolean
-}) {
-  const [visible, setVisible] = useState(false)
-  const loginCopy = getTranslations(lang).login
-
-  return (
-    <div className="relative">
-      <input
-        id={id}
-        type={visible ? 'text' : 'password'}
-        required={required}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className={`${inputClass} pr-11`}
-      />
-      <button
-        type="button"
-        onClick={() => setVisible((v) => !v)}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-earth-400 transition hover:text-earth-600"
-        aria-label={visible ? loginCopy.hidePassword : loginCopy.showPassword}
-      >
-        {visible ? <EyeOffIcon /> : <EyeIcon />}
-      </button>
-    </div>
-  )
-}
-
-function EyeIcon() {
-  return (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1 1 0 010-.644C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  )
-}
-
-function EyeOffIcon() {
-  return (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-    </svg>
-  )
-}
 
 function LoginTabs({
   tab,
@@ -203,143 +149,113 @@ export function LoginPageContent() {
   }
 
   return (
-    <section className="px-6 py-12 sm:py-16 lg:px-8">
-      <div className="mx-auto w-full max-w-sm">
-        <div className="mb-10 flex flex-col items-center text-center">
-          <Image
-            src="/logo-amara.png"
-            alt="Amará"
-            width={1536}
-            height={1024}
-            unoptimized
-            className="h-24 w-auto object-contain sm:h-28"
-            priority
-          />
-          <p className="mt-1 text-[0.65rem] font-semibold tracking-[0.35em] text-earth-500">
-            {copy.serenity}
+    <AuthPageShell serenityLabel={copy.serenity}>
+      <LoginTabs
+        tab={tab}
+        onChange={(next) => {
+          setTab(next)
+          setLoginError('')
+          setRegError('')
+        }}
+        loginLabel={copy.tabLogin}
+        registerLabel={copy.tabRegister}
+      />
+
+      {tab === 'login' && (
+        <form onSubmit={handleLogin} className="space-y-5">
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.email}</span>
+            <input
+              type="email"
+              required
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
+              placeholder={copy.emailPlaceholder}
+              className={authInputClass}
+            />
+          </label>
+
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.password}</span>
+            <PasswordInput
+              id="login-password"
+              value={loginPassword}
+              onChange={setLoginPassword}
+              placeholder={copy.passwordPlaceholder}
+              lang={lang}
+            />
+          </label>
+
+          <p className="text-right text-xs text-earth-500">
+            {copy.forgotPassword}{' '}
+            <Link href="/recuperar-contrasena" className="font-medium text-rose-500 hover:underline">
+              {copy.recoverHere}
+            </Link>
           </p>
-        </div>
 
-        <LoginTabs
-          tab={tab}
-          onChange={(next) => {
-            setTab(next)
-            setLoginError('')
-            setRegError('')
-          }}
-          loginLabel={copy.tabLogin}
-          registerLabel={copy.tabRegister}
-        />
+          {loginError && <div className={authErrorBoxClass}>{loginError}</div>}
 
-        {tab === 'login' && (
-          <form onSubmit={handleLogin} className="space-y-5">
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.email}</span>
-              <input
-                type="email"
-                required
-                value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
-                placeholder={copy.emailPlaceholder}
-                className={inputClass}
-              />
-            </label>
+          <button type="submit" disabled={loginLoading} className={authPrimaryButtonClass}>
+            {loginLoading ? copy.signingIn : copy.enter}
+          </button>
+        </form>
+      )}
 
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.password}</span>
-              <PasswordInput
-                id="login-password"
-                value={loginPassword}
-                onChange={setLoginPassword}
-                placeholder={copy.passwordPlaceholder}
-                lang={lang}
-              />
-            </label>
+      {tab === 'registro' && (
+        <form onSubmit={handleRegistro} className="space-y-5">
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.name}</span>
+            <input
+              type="text"
+              required
+              value={regFullName}
+              onChange={(e) => setRegFullName(e.target.value)}
+              placeholder={copy.namePlaceholder}
+              className={authInputClass}
+            />
+          </label>
 
-            <p className="text-right text-xs text-earth-500">
-              {copy.forgotPassword}
-            </p>
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.email}</span>
+            <input
+              type="email"
+              required
+              value={regEmail}
+              onChange={(e) => setRegEmail(e.target.value)}
+              placeholder={copy.emailPlaceholder}
+              className={authInputClass}
+            />
+          </label>
 
-            {loginError && (
-              <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-500">
-                {loginError}
-              </div>
-            )}
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.password}</span>
+            <PasswordInput
+              id="reg-password"
+              value={regPassword}
+              onChange={setRegPassword}
+              placeholder={copy.passwordMinPlaceholder}
+              lang={lang}
+            />
+          </label>
 
-            <button
-              type="submit"
-              disabled={loginLoading}
-              className="w-full rounded-full bg-[#C8A0A0] py-3.5 text-sm font-semibold text-earth-900 transition hover:bg-[#b89090] active:scale-[0.99] disabled:opacity-60"
-            >
-              {loginLoading ? copy.signingIn : copy.enter}
-            </button>
-          </form>
-        )}
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-earth-700">{copy.confirmPassword}</span>
+            <PasswordInput
+              id="reg-confirm-password"
+              value={regConfirm}
+              onChange={setRegConfirm}
+              placeholder={copy.confirmPlaceholder}
+              lang={lang}
+            />
+          </label>
 
-        {tab === 'registro' && (
-          <form onSubmit={handleRegistro} className="space-y-5">
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.name}</span>
-              <input
-                type="text"
-                required
-                value={regFullName}
-                onChange={(e) => setRegFullName(e.target.value)}
-                placeholder={copy.namePlaceholder}
-                className={inputClass}
-              />
-            </label>
+          {regError && <div className={authErrorBoxClass}>{regError}</div>}
 
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.email}</span>
-              <input
-                type="email"
-                required
-                value={regEmail}
-                onChange={(e) => setRegEmail(e.target.value)}
-                placeholder={copy.emailPlaceholder}
-                className={inputClass}
-              />
-            </label>
-
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.password}</span>
-              <PasswordInput
-                id="reg-password"
-                value={regPassword}
-                onChange={setRegPassword}
-                placeholder={copy.passwordMinPlaceholder}
-                lang={lang}
-              />
-            </label>
-
-            <label className="block space-y-2">
-              <span className="text-sm font-medium text-earth-700">{copy.confirmPassword}</span>
-              <PasswordInput
-                id="reg-confirm-password"
-                value={regConfirm}
-                onChange={setRegConfirm}
-                placeholder={copy.confirmPlaceholder}
-                lang={lang}
-              />
-            </label>
-
-            {regError && (
-              <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-500">
-                {regError}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={regLoading}
-              className="w-full rounded-full bg-[#C8A0A0] py-3.5 text-sm font-semibold text-earth-900 transition hover:bg-[#b89090] active:scale-[0.99] disabled:opacity-60"
-            >
-              {regLoading ? copy.creating : copy.createAccount}
-            </button>
-          </form>
-        )}
-      </div>
-    </section>
+          <button type="submit" disabled={regLoading} className={authPrimaryButtonClass}>
+            {regLoading ? copy.creating : copy.createAccount}
+          </button>
+        </form>
+      )}
+    </AuthPageShell>
   )
 }

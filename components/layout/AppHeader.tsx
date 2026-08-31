@@ -12,19 +12,19 @@ import { loginPath } from '@/lib/auth-redirect'
 import { getTranslations } from '@/lib/i18n'
 import { createSupabaseClient } from '@/lib/supabase'
 
-const navigation = [
-  { label: 'Inicio',      to: '/' },
-  { label: 'Frases',      to: '/frases' },
-  { label: 'Productos',   to: '/productos' },
-  { label: 'Música',      to: '/melodias' },
-  { label: 'Ejercicios',  to: '/ejercicios' },
-  { label: 'Mi Progreso', to: '/progreso' },
-]
-
 export function AppHeader() {
   const pathname = usePathname()
   const { lang } = useLocale()
   const headerCopy = getTranslations(lang).header
+
+  const navigation = [
+    { label: headerCopy.navHome, to: '/' },
+    { label: headerCopy.navPhrases, to: '/frases' },
+    { label: headerCopy.navProducts, to: '/productos' },
+    { label: headerCopy.navMusic, to: '/melodias' },
+    { label: headerCopy.navExercises, to: '/ejercicios' },
+    { label: headerCopy.navProgress, to: '/progreso' },
+  ]
   const [user, setUser] = useState<User | null>(null)
   const [avatarOpen, setAvatarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

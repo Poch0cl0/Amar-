@@ -33,7 +33,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${manrope.variable} ${cormorant.variable}`}>
+    <html
+      lang="es"
+      data-scroll-behavior="smooth"
+      className={`${manrope.variable} ${cormorant.variable}`}
+    >
       <body className="bg-sand-50 text-earth-950 antialiased">
         <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(166,201,185,0.2),_transparent_35%),linear-gradient(180deg,_#fcfaf5_0%,_#f6f0e8_100%)]">
           <LocaleProvider>

@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react'
 import type { User } from '@supabase/supabase-js'
 import { SettingsGuestCTA } from '@/components/configuracion/SettingsGuestCTA'
 import { useLocale } from '@/components/providers/LocaleProvider'
-import { loginPath } from '@/lib/auth-redirect'
 import { getTranslations } from '@/lib/i18n'
 import {
   changePassword,
@@ -437,7 +436,7 @@ export function ConfiguracionPageContent() {
                 <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-sm text-earth-500">
                     {copy.forgotPassword}{' '}
-                    <Link href={loginPath('/configuracion')} className="text-rose-500 hover:underline">
+                    <Link href="/recuperar-contrasena" className="text-rose-500 hover:underline">
                       {copy.resetHere}
                     </Link>
                   </p>
